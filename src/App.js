@@ -1,7 +1,7 @@
 import React from 'react'
 import AppSection from './elements/AppSection'
 import './App.css'
-import Header from './components/Header';
+import Header from './blocks/Header';
 
 
 function App() {
