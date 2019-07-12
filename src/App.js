@@ -1,12 +1,12 @@
 import React from 'react'
-import AppSection from './elements/AppSection'
+import AppSection from './elements/AppSection';
 import './App.css'
-import Header from './blocks/Header';
+import Header from './components/Header';
 
 
 function App() {
     return ( <div className = 'App' >
-      <Header>This is a Header</Header>
+      <Header/>
       <AppSection>This is a Section</AppSection>
         </div>
     )
