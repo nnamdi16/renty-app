@@ -3,4 +3,4 @@ import displayCarsReducer from './displayCarsReducer';
 
 export default combineReducers({
   display: displayCarsReducer
-})
+});
