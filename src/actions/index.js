@@ -1,6 +1,7 @@
 import {SEARCH_CARS} from './types';
 const {getCarDetails} = require('../node_modules/api');
 
+
 export const carReport = () => async dispatch =>{
   try {
     const carDetails = await getCarDetails();
@@ -12,7 +13,3 @@ export const carReport = () => async dispatch =>{
     console.log('done');
   }
 }
-
-// carReport().then((data) => {
-//   console.log(data);
-// })
