@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import MenuList from './Text';
 import List from './List';
+import HeaderButton from './Button';
 
 const Menu = styled.nav `
  grid-column: 3/4;
@@ -9,5 +10,6 @@ const Menu = styled.nav `
 
 Menu.Item = MenuList;
 Menu.List = List;
+Menu.Button = HeaderButton;
 
 export default Menu;
