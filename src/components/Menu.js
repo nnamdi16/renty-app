@@ -5,7 +5,7 @@ export default () => {
   return (
     <Menu>
     <Menu.List>
-      <Menu.Item>Help</Menu.Item>
+      <Menu.Button width='4rem' height='1.5rem' color='#EF7D34' >Help</Menu.Button>
       <Menu.Item>Terms & Condition</Menu.Item>
       <Menu.Item>About</Menu.Item>
       <Menu.Item>Contact Us</Menu.Item>
