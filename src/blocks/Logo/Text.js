@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../constants";
 
 const Text = styled.span`
   width: 5rem;
@@ -8,6 +9,10 @@ const Text = styled.span`
   font-size: 2rem;
   font-weight: bolder;
   color: #424c57;
+
+  @media ${device.laptop} {
+    font-size: 1rem;
+  }
 `;
 
 export default Text;
