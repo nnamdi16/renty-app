@@ -1,15 +1,16 @@
-import {SEARCH_CARS} from '../actions/types'
+import {GET_CARS} from '../actions/types'
 const initialState = {
-  cars: []
+  cars: [],
+  searchedCars : []
 }
 
 export default (state, action) => {
   state = initialState;
 
   switch (action.type) {
-    case SEARCH_CARS:
+    case GET_CARS:
       return {...state, cars: action.payload};
-
+  
     default:
      return state;
   }
