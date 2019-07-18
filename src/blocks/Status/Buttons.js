@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 import Button from '../../elements/Button';
 
 const Buttons = styled(Button).attrs(props =>({
