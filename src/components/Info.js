@@ -19,15 +19,15 @@ export default () => {
      </Info.Card>
      <Info.Card position = {position.secondCard}>
         <Info.Icon src={FirstCircle}></Info.Icon>
-        <Info.Text>Create Request</Info.Text>
+        <Info.Text>Choose a car</Info.Text>
      </Info.Card>
      <Info.Card position = {position.thirdCard}>
         <Info.Icon src={FirstCircle}></Info.Icon>
-        <Info.Text>Create Request</Info.Text>
+        <Info.Text>Choose extras</Info.Text>
      </Info.Card>
      <Info.Card position = {position.fourthCard}>
         <Info.Icon src={FirstCircle}></Info.Icon>
-        <Info.Text>Create Request</Info.Text>
+        <Info.Text>Review & Book </Info.Text>
      </Info.Card>
    </Info>
   )
