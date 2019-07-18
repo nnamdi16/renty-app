@@ -3,8 +3,11 @@ import SearchInput from "./SearchInput";
 import SearchInfo from "./SearchInfo";
 import SearchButton from "./Button";
 import SearchImage from "./Image";
-import Text from './Text';
-import Checkbox from './Checkbox';
+import Text from "./Text";
+import Checkbox from "./Checkbox";
+import DatePicker from "./DatePicker";
+import Container from "./Container";
+
 
 const Search = styled.div`
   grid-row: 2/3;
@@ -27,7 +30,8 @@ const Search = styled.div`
   border-bottom-left-radius: 6px;
   display: grid;
   grid-template-rows: repeat(3, 1fr);
-  
+
+
 `;
 Search.SearchInput = SearchInput;
 Search.SearchInfo = SearchInfo;
@@ -35,5 +39,7 @@ Search.Button = SearchButton;
 Search.Image = SearchImage;
 Search.Text = Text;
 Search.Checkbox = Checkbox;
+Search.DatePicker = DatePicker;
+Search.Container = Container;
 
 export default Search;

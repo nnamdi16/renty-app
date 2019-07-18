@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
+
 const Header = styled.div.attrs(props => ({
   height: props.height || "3rem",
   color: props.color || "#F8F9FA",
   width: props.width || "20rem",
   display: props.display || "",
   column: props.column || "",
-  row: props.row || ""
+  row: props.row || "",
+  align: props.align || ""
 }))`
   -webkit-box-shadow: 0 0.5px 1px rgba(0, 0, 0, 0.3),
     0 0 1px rgba(0, 0, 0, 0.1) inset;
@@ -26,6 +28,9 @@ const Header = styled.div.attrs(props => ({
   grid-template-columns: ${props => props.column};
   grid-template-rows: ${props => props.row};
   border: 1px solid #cacbcc;
+  justify-content: ${props => props.align};
+
+  
 `;
 
 export default Header;

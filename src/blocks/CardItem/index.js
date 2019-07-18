@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import Details from "./Details";
 import Images from "./Images";
-import Summary from './Summary';
-import List from './List';
+import Summary from "./Summary";
+import List from "./List";
 
 const CardItem = styled.section`
   width: 100%;
@@ -13,7 +13,8 @@ const CardItem = styled.section`
   border: 0 0 thin 0;
   border-color: #d7dadc;
   font-size: 1rem;
-  text-transform:capitalize;
+  text-transform: capitalize;
+  color: #777c81;
 `;
 
 CardItem.Details = Details;

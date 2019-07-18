@@ -9,6 +9,7 @@ import Pagination from "./Pagination";
 import { onGetVehicles } from "../actions";
 import { getQueryString } from "../util/helpers";
 import { withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
 
 class App extends Component {
   state = {
@@ -19,7 +20,10 @@ class App extends Component {
     startIndex: "",
     endIndex: "",
     waitTime: 500,
-    search: ""
+    search: "",
+    manufacturers: [],
+    vehicle_type: [],
+    page: 1
   };
 
   componentDidMount() {
@@ -30,10 +34,32 @@ class App extends Component {
     });
   }
 
+  handleSelect = ({ target: { name, value } }) => {
+    if (this.state[name].indexOf(value) > -1) {
+      const index = [...this.state[name]].indexOf(value);
+      const newList = [...this.state[name]];
+      newList.splice(index, 1);
+      this.setState({ [name]: newList }, () => {
+        debounce(query => {
+          this.pushToLocation();
+        }, 0)();
+      });
+    } else {
+      const newList = [...this.state[name], value];
+      this.setState({ [name]: newList }, () => {
+        debounce(query => {
+          this.pushToLocation();
+        }, 0)();
+      });
+    }
+  };
+
   getSearchParams = () => {
     const params = new window.URLSearchParams(this.props.location.search);
+    const page = params.get("page");
     const search = params.get("search");
-    this.setState({ search });
+    const manufacturers = params.getAll("manufacturers");
+    this.setState({ search, manufacturers, page });
   };
 
   handleChange = ({ target: { name, value } }) => {
@@ -43,16 +69,22 @@ class App extends Component {
     );
   };
 
+  handleClick = page => {
+    this.setState({ page }, () => {
+      debounce(query => {
+        this.pushToLocation();
+      }, 0)();
+    });
+  };
+
   debouncedSearch = debounce(query => {
     this.pushToLocation();
   }, this.state.waitTime);
 
   pushToLocation = () => {
-    const params = new window.URLSearchParams(this.props.location.search);
-    const { search } = this.state;
-    const page = params.get("page");
-    const query = getQueryString({ page, search });
-    const url = `${this.props.match.url}${query}`;
+    const { search, manufacturers, vehicle_type, page } = this.state;
+    const query = getQueryString({ page, search, manufacturers, vehicle_type });
+    const url = `${this.props.match.url}${query && `?${query}`}`;
     this.props.history.push(url);
   };
 
@@ -60,7 +92,9 @@ class App extends Component {
     const params = new window.URLSearchParams(this.props.location.search);
     const search = params.get("search");
     const page = params.get("page");
-    const query = getQueryString({ page, search });
+    const manufacturers = params.getAll("manufacturers");
+    const vehicle_type = params.getAll("vehicle_type");
+    const query = getQueryString({ page, search, manufacturers, vehicle_type });
     this.props.onGetVehicles(query);
   };
 
@@ -71,25 +105,25 @@ class App extends Component {
   }
 
   render() {
-    const { search } = this.state;
-    console.log(this.props.display);
-    console.log(this.props.location);
-    console.log(this.props);
+    const { search, manufacturers, vehicle_type } = this.state;
+    console.log(this.state);
     return (
       <Body>
         <Search handleChange={this.handleChange} value={search} />
         <Display
+          vehicle_type={vehicle_type}
+          manufacturers={manufacturers}
           vehicles={this.props.display}
+          handleSelect={this.handleSelect}
           handleChange={this.handleChange}
         />
-        <Pagination handleClick={this.pushToLocation} />
+        <Pagination handleClick={this.handleClick} />
       </Body>
     );
   }
 }
 
 const mapStateToProps = state => {
-  console.log(state.display);
   return {
     display: state.display.cars,
     searchedCars: state.display.searchedCars
@@ -100,3 +134,13 @@ export default connect(
   mapStateToProps,
   { onGetVehicles }
 )(withRouter(App));
+
+App.propTypes = {
+  manufacturers: PropTypes.array.isRequired,
+  vehicle_type: PropTypes.array.isRequired
+};
+
+App.defaultProps = {
+  manufacturers: [],
+  vehicle_type: []
+};
