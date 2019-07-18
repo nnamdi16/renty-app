@@ -4,9 +4,9 @@ import DropDownButton from '../../elements/DropDown';
 
 const Status = styled.div `
   grid-column: 4/5;
-  display:flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display:grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr)
 `
 
 

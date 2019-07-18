@@ -1,15 +1,13 @@
-import React from 'react';
-import SideBar from '../blocks/SideBar';
-import InfoCard from './InfoCard';
-import FilterCard from './FilterCard';
-
+import React from "react";
+import SideBar from "../blocks/SideBar";
+import InfoCard from "./InfoCard";
+import FilterCard from "./FilterCard";
 
 export default () => {
   return (
-   <SideBar>
-     <InfoCard></InfoCard>
-     <FilterCard></FilterCard>
-   </SideBar>
-  )
-}
-
+    <SideBar>
+      <InfoCard />
+      <FilterCard />
+    </SideBar>
+  );
+};
