@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 const Images = styled.img`
-  width: 70%;
-  height: 70%;
+  width: 9rem;
+  height: 6rem;
 
 `;
 

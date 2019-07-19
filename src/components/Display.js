@@ -4,19 +4,28 @@ import SideBar from "./SideBar";
 import Display from "../blocks/Display";
 import ResultCard from "./ResultCard";
 
-const App = ({ vehicles }) => {
+const App = ({ vehicles, handleSelect, manufacturers, vehicle_type }) => {
   return (
     <Display>
-      <SideBar />
-      <ResultCard vehicles={vehicles} />
+      <SideBar
+        vehicle_type={vehicle_type}
+        handleSelect={handleSelect}
+        manufacturers={manufacturers}
+        vehicleTypes={vehicles.vehicleTypes}
+        manufacturers_list={vehicles.manufacturers}
+      />
+      <ResultCard vehicles={vehicles.vehicles} />
     </Display>
   );
 };
 
 App.propTypes = {
-  vehicles: PropTypes.array.isRequired
+  manufacturers: PropTypes.array.isRequired,
+  handleSelect: PropTypes.func.isRequired
 };
 App.defaultProps = {
-  vehicles: []
+  vehicles: [],
+  manufacturers: [],
+  vehicle_type: []
 };
 export default App;

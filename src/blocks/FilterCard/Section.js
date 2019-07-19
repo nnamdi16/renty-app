@@ -13,6 +13,9 @@ const Section = styled.div.attrs(props => ({
   text-transform: uppercase;
   background-color: ${props => props.background};
   color: ${props => props.color};
+  display: grid;
+  overflow-y: scroll;
+  overflow-x: hidden;
 `;
 
 export default Section;
