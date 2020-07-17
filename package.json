@@ -6,7 +6,7 @@
         "font-awesome": "^4.7.0",
         "install": "^0.13.0",
         "jshint": "^2.10.2",
-        "lodash": "^4.17.14",
+        "lodash": "^4.17.19",
         "lodash.debounce": "^4.0.8",
         "lodash.isequal": "^4.5.0",
         "prop-types": "^15.7.2",
